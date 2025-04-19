@@ -1,0 +1,30 @@
+{  
+  "manifest_version": 3,
+  "name": "SafeClick",
+  "version": "0.1.0",
+  "description": "Detects phishing websites and alerts users if they are safe or not.",
+  "permissions": [
+    "notifications",
+    "storage"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/ext-icon.png",
+      "24": "assets/ext-icon.png",
+      "32": "assets/ext-icon.png"
+    },
+    "default_title": "SafeClick: Phishing Protection",
+    "default_popup": "popup.html"
+  }
+}
